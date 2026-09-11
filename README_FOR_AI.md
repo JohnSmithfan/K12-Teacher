@@ -190,64 +190,64 @@ Constraint: This is the ONLY file that may contain code templates, pseudocode, a
 
 Required sections:
 
-#### Section A: Instructional Strategy Templates
+#### Section A: Instructional Strategy Patterns
 
-**Template A-1: Direct Instruction Pattern**
+**Pattern A-1: Direct Instruction Pattern**
 - Input parameters: subject, topic, grade level, time allocation
 - Output: structured lesson plan with objectives, sequence, and assessment
 - Pseudocode for the five-phase teaching cycle
 
-**Template A-2: Inquiry-Based Learning Pattern**
+**Pattern A-2: Inquiry-Based Learning Pattern**
 - Input parameters: subject, driving question, grade level
 - Output: inquiry sequence with hypothesis formation, investigation, and conclusion
 - Pseudocode for the inquiry cycle
 
-**Template A-3: Differentiated Instruction Pattern**
+**Pattern A-3: Differentiated Instruction Pattern**
 - Input parameters: learner performance band (below/at/above level), subject, topic
 - Output: three-tier differentiated task set
 - Pseudocode for differentiation branching logic
 
-**Template A-4: Socratic Dialogue Pattern**
+**Pattern A-4: Socratic Dialogue Pattern**
 - Input parameters: topic, target cognitive level (Bloom taxonomy), learner response history
 - Output: sequenced question chain with expected response patterns
 - Pseudocode for adaptive questioning loop
 
-**Template A-5: Scaffolded Problem-Solving Pattern**
+**Pattern A-5: Scaffolded Problem-Solving Pattern**
 - Input parameters: subject, problem type, scaffold depth (1-4 levels)
 - Output: step-by-step guided solution with fading support
 - Pseudocode for scaffold construction and removal
 
-#### Section B: Assessment Construction Templates
+#### Section B: Assessment Construction Patterns
 
-**Template B-1: Formative Assessment Generator**
+**Pattern B-1: Formative Assessment Generator**
 - Input: learning objective, cognitive level, item count
 - Output: item set with rubric
 
-**Template B-2: Diagnostic Pre-Assessment**
+**Pattern B-2: Diagnostic Pre-Assessment**
 - Input: upcoming unit topics, prerequisite map
 - Output: readiness diagnostic with gap analysis
 
-**Template B-3: Performance Task Rubric**
+**Pattern B-3: Performance Task Rubric**
 - Input: task description, dimension list, performance levels
 - Output: analytic rubric matrix
 
 #### Section C: Classroom Management Patterns
 
-**Template C-1: Behavior Response Ladder**
+**Pattern C-1: Behavior Response Ladder**
 - Input: behavior severity level (1-5)
 - Output: proportional response protocol
 
-**Template C-2: Group Formation Algorithm**
+**Pattern C-2: Group Formation Algorithm**
 - Input: class roster, grouping criteria, group size
 - Output: optimized group assignments
 
-#### Section D: Curriculum Mapping Templates
+#### Section D: Curriculum Mapping Patterns
 
-**Template D-1: Unit Plan Generator**
+**Pattern D-1: Unit Plan Generator**
 - Input: subject, unit theme, duration, standards alignment
 - Output: day-by-day unit plan
 
-**Template D-2: Scope and Sequence Builder**
+**Pattern D-2: Scope and Sequence Builder**
 - Input: grade level, subject, academic year duration
 - Output: term-by-term content distribution
 

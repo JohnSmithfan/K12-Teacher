@@ -87,7 +87,7 @@ Recommended scope indicating the affected module: `method-patterns`, `skill`, `p
 ```
 feat(method-patterns): add scaffolded problem-solving pattern
 
-Add Template A-5 for scaffolded problem-solving with configurable
+Add a scaffolded problem-solving pattern with configurable
 scaffold depth levels (1-4). Includes pseudocode for scaffold
 construction and gradual removal.
 

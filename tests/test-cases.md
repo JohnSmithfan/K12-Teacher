@@ -18,7 +18,7 @@ Each test case includes: Test Case ID, Input scenario (grade/subject/topic/learn
 
 **Input Scenario**: Grade 2, Mathematics, Adding Two-Digit Numbers, Entry-level learner, no prior math instruction, visual learner
 
-**Expected Behavior**: Tier 0 (Qualification Level); Template A-1 (Direct Instruction Pattern); Depth 1 (surface-level)
+**Expected Behavior**: Tier 0 (Qualification Level); Pattern A-1 (Direct Instruction Pattern); Depth 1 (surface-level)
 
 **Expected Output Shape**: Simple language with visual aids; concrete examples (blocks/pictures); 3-5 recall questions; no remediation if successful
 
@@ -30,7 +30,7 @@ Each test case includes: Test Case ID, Input scenario (grade/subject/topic/learn
 
 **Input Scenario**: Grade 7, Science, Photosynthesis, At grade level, basic biology vocabulary, diagram-based learner
 
-**Expected Behavior**: Tier 1 (Developing Practitioner); Template A-5 (Scaffolded Problem-Solving Pattern); Depth 2 (procedural/application)
+**Expected Behavior**: Tier 1 (Developing Practitioner); Pattern A-5 (Scaffolded Problem-Solving Pattern); Depth 2 (procedural/application)
 
 **Expected Output Shape**: Guided practice with scaffolding; diagram description; application-level assessment questions; remediation for common misconceptions
 
@@ -42,7 +42,7 @@ Each test case includes: Test Case ID, Input scenario (grade/subject/topic/learn
 
 **Input Scenario**: Grade 11, English Language Arts, Analyzing Shakespearean Sonnets - Theme and Literary Devices, Above grade level, exam preparation
 
-**Expected Behavior**: Tier 3 (Senior Practitioner); Template A-4 (Socratic Dialogue Pattern); Depth 4 (evaluative/creative)
+**Expected Behavior**: Tier 3 (Senior Practitioner); Pattern A-4 (Socratic Dialogue Pattern); Depth 4 (evaluative/creative)
 
 **Expected Output Shape**: Socratic questioning; close reading of specific sonnets; evaluative/creative assessment; cross-disciplinary connections
 
@@ -54,7 +54,7 @@ Each test case includes: Test Case ID, Input scenario (grade/subject/topic/learn
 
 **Input Scenario**: Grade 5, Mathematics, Area and Perimeter of Rectangles, At grade level, mixed abilities, needs enrichment
 
-**Expected Behavior**: Tier 2 (Competent Practitioner); Template B-1 (Formative Assessment Generator) + Template A-3 (Differentiated Instruction); Depth 3 (analytical/strategic)
+**Expected Behavior**: Tier 2 (Competent Practitioner); Pattern B-1 (Formative Assessment Generator) + Pattern A-3 (Differentiated Instruction); Depth 3 (analytical/strategic)
 
 **Expected Output Shape**: Differentiated tasks; formative assessment aligned to objectives; mix of question types; rubric provided; tiered remediation
 
@@ -70,7 +70,7 @@ Each test case includes: Test Case ID, Input scenario (grade/subject/topic/learn
 
 **Input Scenario**: Grades 4-6 (combined), Science, States of Matter, Mixed grade levels ages 9-12, varying prior knowledge
 
-**Expected Behavior**: Tier 1 (younger)/Tier 2 (older) hybrid; Template A-3 (Differentiated Instruction); Depth 2-3 varies by group
+**Expected Behavior**: Tier 1 (younger)/Tier 2 (older) hybrid; Pattern A-3 (Differentiated Instruction); Depth 2-3 varies by group
 
 **Expected Output Shape**: Parallel activities scaled per grade level; core concept consistent; tiered assessment; mixed-age management guidance
 
@@ -82,7 +82,7 @@ Each test case includes: Test Case ID, Input scenario (grade/subject/topic/learn
 
 **Input Scenario**: Grade 4, Reading, Comprehension Strategies - Main Idea and Supporting Details, Student with dyslexia, reads at Grade 2 level, IEP in place
 
-**Expected Behavior**: Tier 1 with accommodations; Template A-3 + Template A-1; Depth 2 with accessibility modifications
+**Expected Behavior**: Tier 1 with accommodations; Pattern A-3 + Pattern A-1; Depth 2 with accessibility modifications
 
 **Expected Output Shape**: Simplified text with glossary; multi-sensory activities; audio resource recommendations; oral response alternatives; accommodation notes; IEP alignment
 
@@ -94,7 +94,7 @@ Each test case includes: Test Case ID, Input scenario (grade/subject/topic/learn
 
 **Input Scenario**: Grade 6, Mathematics, Introduction to Algebraic Thinking, Above grade level by 2+ years, mastered grade content
 
-**Expected Behavior**: Tier 3 (Senior Practitioner); Template A-2 (Inquiry-Based Learning); Depth 4 (evaluative/creative)
+**Expected Behavior**: Tier 3 (Senior Practitioner); Pattern A-2 (Inquiry-Based Learning); Depth 4 (evaluative/creative)
 
 **Expected Output Shape**: Accelerated content with open-ended inquiry; connections to higher-level math; creation-level assessment; enrichment activities; no watered-down content
 
@@ -106,7 +106,7 @@ Each test case includes: Test Case ID, Input scenario (grade/subject/topic/learn
 
 **Input Scenario**: Grade 3, Science, The Water Cycle, New ELL, proficient in Spanish, limited English vocabulary, visual learner
 
-**Expected Behavior**: Tier 1 with ELL accommodations; Template A-1 + Template A-3; Depth 2 with language scaffolding
+**Expected Behavior**: Tier 1 with ELL accommodations; Pattern A-1 + Pattern A-3; Depth 2 with language scaffolding
 
 **Expected Output Shape**: Bilingual glossary (English/Spanish); visual aids/graphic organizers; sentence frames; simplified language; visual/gestural assessment options; cultural connections
 

@@ -18,11 +18,11 @@ Five-tier progressive instructional model (modeled on professional teacher certi
 
 | Tier | Name | Descriptor | Depth Parameter |
 |---|---|---|---|
-| 0 | Qualification | Foundational knowledge delivery with basic explanation; no adaptive instruction or assessment design | 1 |
-| 1 | Developing Practitioner | Structured lesson delivery with basic differentiation, understanding checks, and pace adjustment | 2 |
-| 2 | Competent Practitioner | Independent instructional design, assessment construction, pacing management, and targeted feedback | 3 |
-| 3 | Senior Practitioner | Expert design with cross-disciplinary connections, project-based learning, and mentoring of instructional agents | 4 |
-| 4 | Principal-Level Expert | Thought leadership: original curriculum development, pedagogical research, publishing frameworks, systemic consulting | 5 |
+| Tier 0 | Qualification | Foundational knowledge delivery with basic explanation; no adaptive instruction or assessment design | 1 |
+| Tier 1 | Developing Practitioner | Structured lesson delivery with basic differentiation, understanding checks, and pace adjustment | 2 |
+| Tier 2 | Competent Practitioner | Independent instructional design, assessment construction, pacing management, and targeted feedback | 3 |
+| Tier 3 | Senior Practitioner | Expert design with cross-disciplinary connections, project-based learning, and mentoring of instructional agents | 4 |
+| Tier 4 | Principal-Level Expert | Thought leadership: original curriculum development, pedagogical research, publishing frameworks, systemic consulting | 5 |
 
 ## Subject Registry
 
