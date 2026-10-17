@@ -154,5 +154,12 @@ downloads/cache/
 downloads/tmp/
 
 # ============================================
+# Local Tooling and Reports
+# ============================================
+
+# Local agent workspace data (audit reports, memory, task state)
+.workbuddy/
+
+# ============================================
 # End of .gitignore
 # ============================================

@@ -166,9 +166,14 @@ REQUIRED_FILES=(
 # Optional files (should warn but not fail if missing)
 OPTIONAL_FILES=(
     "downloads/syllabus"
+    ".gitattributes"
+    "SUPPORT.md"
+    "GOVERNANCE.md"
     ".github/workflows"
     ".github/ISSUE_TEMPLATE"
-    ".github/PULL_REQUEST_TEMPLATE"
+    ".github/PULL_REQUEST_TEMPLATE.md"
+    ".github/CODEOWNERS"
+    ".github/dependabot.yml"
 )
 
 for file in "${REQUIRED_FILES[@]}"; do

@@ -27,7 +27,7 @@
 1. Clone the repository:
 
    ```
-   git clone <https://github.com/JohnSmithfan/K12-Teacher.git>
+   git clone https://github.com/JohnSmithfan/K12-Teacher.git
    cd k12-teacher
    ```
 
@@ -58,13 +58,16 @@ For detailed build instructions and file specifications, see [README_FOR_AI.md](
 ```
 k12-teacher/
 |
-|-- .gitignore                  Exclude build artifacts and editor temp files
 |-- .editorconfig               Coding style rules for editor consistency
+|-- .gitattributes              Line-ending normalization and binary-file rules
+|-- .gitignore                  Exclude build artifacts and editor temp files
 |-- LICENSE                     GNU General Public License v3 (GPLv3)
 |-- CONTRIBUTING.md             Contribution workflow and guidelines
-|-- CODE_OF_CONDUCT.md         Community standards (Contributor Covenant)
+|-- CODE_OF_CONDUCT.md          Community standards (Contributor Covenant)
 |-- CHANGELOG.md                Chronological release history
 |-- SECURITY.md                 Security policy and vulnerability reporting
+|-- SUPPORT.md                  Support channels and response expectations
+|-- GOVERNANCE.md               Roles, decision process, and release policy
 |-- README.md                   This file -- project overview for human readers
 |-- README_FOR_AI.md            Master build instruction set for AI compilation
 |
@@ -90,10 +93,17 @@ k12-teacher/
 |-- downloads/
 |   |-- syllabus/               [Optional] Locally downloaded syllabus documents
 |
-|-- .github/                    [Optional] CI/CD workflows and templates
-|   |-- workflows/
+|-- .github/                    GitHub platform configuration
 |   |-- ISSUE_TEMPLATE/
-|   |-- PULL_REQUEST_TEMPLATE/
+|   |   |-- bug_report.yml      Structured bug report form
+|   |   |-- feature_request.yml Structured feature request form
+|   |   |-- config.yml          Issue form configuration and contact links
+|   |-- PULL_REQUEST_TEMPLATE.md Pull request checklist
+|   |-- workflows/
+|   |   |-- ci.yml              CI: structure validation, ShellCheck, PR title lint
+|   |-- CODEOWNERS              Review ownership for all paths
+|   |-- dependabot.yml          Weekly GitHub Actions updates
+|   |-- FUNDING.yml             Sponsorship options
 ```
 
 ## License
@@ -111,3 +121,5 @@ By using, distributing, or modifying this software, you agree to the terms of th
 - **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)** -- Community conduct standards.
 - **[CHANGELOG.md](CHANGELOG.md)** -- Release history and version changes.
 - **[SECURITY.md](SECURITY.md)** -- Security policy and vulnerability disclosure process.
+- **[SUPPORT.md](SUPPORT.md)** -- Support channels and response expectations.
+- **[GOVERNANCE.md](GOVERNANCE.md)** -- Roles, decision process, and release policy.
