@@ -1,5 +1,7 @@
 # README FOR AI
 
+Justification (C-09): this document intentionally exceeds the 300-line guideline. It is the complete master build specification and is maintained as a single self-contained artifact so that an AI agent can compile the entire project from one file.
+
 ## 1. Skill Identity
 
 | Field | Value |
@@ -40,13 +42,16 @@ The following constraints are non-negotiable and apply to every file produced du
 ```
 k12-teacher/
 |
-|-- .gitignore
 |-- .editorconfig
+|-- .gitattributes              Line-ending normalization and binary-file rules
+|-- .gitignore
 |-- LICENSE
 |-- CONTRIBUTING.md
 |-- CODE_OF_CONDUCT.md
 |-- CHANGELOG.md
 |-- SECURITY.md
+|-- SUPPORT.md                  Support channels and response expectations
+|-- GOVERNANCE.md               Roles, decision process, and release policy
 |-- README.md
 |-- README_FOR_AI.md
 |
@@ -72,12 +77,21 @@ k12-teacher/
 |-- downloads/
 |   |-- syllabus/              [Optional: for locally downloaded syllabus documents]
 |-- .github/          [Optional: for CI/CD workflows, issue/PR templates]
-|   |-- workflows/
 |   |-- ISSUE_TEMPLATE/
-|   |-- PULL_REQUEST_TEMPLATE/
+|   |   |-- bug_report.yml      Structured bug report form
+|   |   |-- feature_request.yml Structured feature request form
+|   |   |-- config.yml          Issue form configuration and contact links
+|   |-- PULL_REQUEST_TEMPLATE.md Pull request checklist
+|   |-- workflows/
+|   |   |-- ci.yml              CI: structure validation, ShellCheck, PR title lint
+|   |-- CODEOWNERS              Review ownership for all paths
+|   |-- dependabot.yml          Weekly GitHub Actions updates
+|   |-- FUNDING.yml             Sponsorship options
 ```
 
 **Note on .github/:** The above directory is optional but recommended for projects emphasizing GitHub standardization. It can host CI/CD workflow definitions (e.g., automated validation on push), issue templates, and pull request templates. Its absence does not constitute a build failure.
+
+**Note on community health files:** `SUPPORT.md`, `GOVERNANCE.md`, and `.gitattributes` are GitHub community health files added in the repository standardization pass. They are part of the current baseline; when regenerating the project, produce them in the same build phase as the other root documentation files.
 
 ## 5. File-by-File Specification
 
@@ -105,6 +119,18 @@ Required settings:
 - trim_trailing_whitespace = true
 - indent_size = 4 (for markdown files)
 - [*.{md,sh}] apply to markdown and shell files
+
+#### .gitattributes
+
+Purpose: Normalize line endings and mark binary assets at the Git level, so checkouts and diffs behave identically across platforms.
+
+Required entries:
+- `* text=auto eol=lf` (auto-detect text, normalize to LF in the repository)
+- `*.sh text eol=lf` (shell scripts keep LF even on Windows checkouts)
+- `LICENSE text eol=lf` (legal text preserved verbatim)
+- Binary marking for image, font, and PDF assets: `*.png binary`, `*.jpg binary`, `*.jpeg binary`, `*.gif binary`, `*.bmp binary`, `*.ico binary`, `*.svg binary`, `*.pdf binary`, `*.woff binary`, `*.woff2 binary`, `*.ttf binary`, `*.eot binary`, `*.otf binary`
+- `downloads/** -diff` (downloaded external documents are opaque blobs)
+- `*.md linguist-documentation` (documentation-first repository)
 
 #### LICENSE
 
@@ -148,6 +174,26 @@ Required sections per release:
 
 Initial entry: v1.0.0 with release date and full feature list.
 
+#### SUPPORT.md
+
+Purpose: GitHub community health file describing where to get help.
+
+Required sections:
+- Support channels table (GitHub Issues, Discussions, pull requests, SECURITY.md process)
+- Documentation index linking the other root documents
+- Response expectations (best-effort community support)
+- Scope note mirroring the boundary conditions in SKILL.md
+
+#### GOVERNANCE.md
+
+Purpose: GitHub community health file describing project roles and decision making.
+
+Required sections:
+- Roles table (Maintainer, Reviewer, Contributor)
+- Decision making rules (routine decisions via PR review; significant changes via issue with a comment period of at least 5 business days)
+- Release policy (Semantic Versioning, maintainer tags, release notes compiled from CHANGELOG.md)
+- Security response reference to SECURITY.md
+
 #### README.md
 
 Purpose: Human-facing project overview.
@@ -156,6 +202,8 @@ Required sections:
 - Project Title and One-Line Description
 - Features
 - Quick Start
+- Using the Skill (pointer to the prompts/ deliverables)
+- Regenerating the Project with an AI Agent (copy-paste instruction that directs an AI agent to compile the project from this document, with expected-outcome notes)
 - File Structure Overview
 - License Reference
 - Links to README_FOR_AI.md and CONTRIBUTING.md
@@ -536,8 +584,10 @@ Establish the project skeleton, licensing, and foundational documentation.
 Step 1:  Create directory structure (all folders and empty files)
 Step 2:  Write .gitignore
 Step 3:  Write .editorconfig
+Step 3.5: Write .gitattributes (line-ending normalization and binary marking)
 Step 4:  Write LICENSE (GPLv3 canonical text)
 Step 5:  Write README.md (project overview for human readers)
+Step 5.5: Write community health files (SUPPORT.md, GOVERNANCE.md)
 ```
 
 ### Phase 2: Capability & Instructional Engine (Steps 6-12)
@@ -573,8 +623,9 @@ Step 16: Commit with message: "feat: initial skill compilation v1.0.0"
 | Phase | Files Produced | Dependencies | Notes |
 |---|---|---|---|
 | Phase 0: Pre-build Preparation | (none -- setup step) | None | Ensure validate-structure.sh is executable via `chmod +x` |
-| Phase 1: Core Structure | .gitignore, .editorconfig, LICENSE, README.md | None | Foundation layer; no external dependencies |
+| Phase 1: Core Structure | .gitignore, .editorconfig, .gitattributes, LICENSE, SUPPORT.md, GOVERNANCE.md, README.md | None | Foundation layer; no external dependencies |
 | Phase 2: Capability Engine | method-patterns.md, SKILL.md, prompts/*, tests/*, scripts/*, CONTRIBUTING.md | Phase 1 files | Core intelligence; method-patterns.md is independent (does NOT require knowledge-base.md content) |
+| Phase 2.5: Platform Configuration (optional) | .github/* (issue forms, PR template, CI workflow, CODEOWNERS, dependabot, funding) | Phase 1 files | Optional; recommended for repositories published on GitHub. Absence does not fail the build |
 | Phase 3: Knowledge Base | knowledge-base.md, syllabus-registry.md, grade-crosswalk.md | Phase 2 files (for cross-reference) | Deferred due to scale; skeleton created in Phase 3 Steps 1-2, content populated in follow-up passes; supports download-based updates via knowledge-base-update.sh |
 | Final Step | (git commit) | Phase 3 files | Commit with message: "feat: initial skill compilation v1.0.0" |
 

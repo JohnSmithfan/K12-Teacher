@@ -53,6 +53,30 @@ To invoke the instructional methodology, use the prompt deliverables in the `pro
 
 For detailed build instructions and file specifications, see [README_FOR_AI.md](README_FOR_AI.md).
 
+## Regenerating the Project with an AI Agent
+
+This section is for contributors, forkers, and auditors. End users who only need teaching prompts can skip it -- see [Using the Skill](#using-the-skill) above.
+
+`README_FOR_AI.md` is the master build instruction set for AI-driven compilation. Any capable AI agent can regenerate the complete project from it. Paste the following instruction into an AI conversation that has access to this repository:
+
+```
+You are compiling the k12-teacher skill from its build specification.
+
+1. Read README_FOR_AI.md in full. It is the master build instruction set.
+2. Execute Section 10 (Build Sequence) in strict order, starting with
+   Phase 0: chmod +x scripts/validate-structure.sh
+3. Honor every constraint in Section 3 (C-01 through C-10) in every file you write.
+4. After each phase, run ./scripts/validate-structure.sh and fix all
+   reported failures before continuing.
+5. The build is complete when every quality gate (G-01 through G-10) passes.
+```
+
+What to expect:
+
+- The agent produces the full project skeleton: community health files, capability engine (method patterns, skill index, prompts, tests, scripts), and the knowledge-base structure.
+- `references/knowledge-base.md` is intentionally created as a skeleton in Phase 3; detailed syllabus-by-syllabus content is populated in later passes (see Section 15 of README_FOR_AI.md for the update procedure). Passing all quality gates is the completion signal, not a fully populated knowledge base.
+- Regenerated or modified works are derivative works under the GNU GPLv3 (see [LICENSE](LICENSE)).
+
 ## File Structure Overview
 
 ```

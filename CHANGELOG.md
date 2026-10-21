@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - `SUPPORT.md` and `GOVERNANCE.md` for support channels, roles, and decision process.
 - `.gitattributes` for line-ending normalization and binary-file marking.
 - `.github/` platform configuration: issue forms (bug report, feature request, config), pull request template, CI workflow (structure validation, ShellCheck, PR title lint), CODEOWNERS, dependabot, and funding options.
+- README.md: "Regenerating the Project with an AI Agent" section with a copy-paste instruction that directs any AI agent to compile the complete project from README_FOR_AI.md.
 
 ### Changed
 - Updated project structure and documentation to align with the build specification in README_FOR_AI.md.
@@ -20,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - LICENSE: added the project copyright line above the canonical GPLv3 text.
 - `.gitignore`: excluded the local `.workbuddy/` tooling directory.
 - `scripts/validate-structure.sh`: registered `.gitattributes`, `SUPPORT.md`, `GOVERNANCE.md`, `.github/PULL_REQUEST_TEMPLATE.md`, `.github/CODEOWNERS`, and `.github/dependabot.yml` as optional files.
+- README_FOR_AI.md: synchronized the build specification with the current repository baseline -- file tree now lists the community health files and the full `.github/` layout; added file specifications for `.gitattributes`, `SUPPORT.md`, and `GOVERNANCE.md`; build sequence gained Step 3.5, Step 5.5, and an optional Phase 2.5 (platform configuration); added the C-09 justification note and the regeneration-instruction requirement for README.md.
 
 ### Fixed
 - Added the required root documentation and update script to satisfy project quality gates.
