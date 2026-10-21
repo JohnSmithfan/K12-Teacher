@@ -19,7 +19,7 @@ Thank you for your interest in contributing to the k12-teacher skill. This docum
 
 This project and all participants are expected to uphold the [Code of Conduct](CODE_OF_CONDUCT.md). We are committed to providing a welcoming and inclusive environment. Participants who violate these standards may be removed from the project.
 
-Please report unacceptable behavior by opening a GitHub issue or contacting the project maintainers directly.
+Please report unacceptable behavior privately through GitHub Security Advisories (see [SECURITY.md](SECURITY.md)). Do not open a public issue for conduct reports.
 
 ## Getting Started
 

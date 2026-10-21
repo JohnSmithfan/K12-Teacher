@@ -156,7 +156,7 @@ Purpose: Establish community standards for participant behavior. Adopt the Contr
 
 #### SECURITY.md
 
-Purpose: Define the security policy for reporting vulnerabilities. Include a security.txt contact method and disclosure timeline.
+Purpose: Define the security policy for reporting vulnerabilities. State GitHub Security Advisories as the single private reporting channel, and include a disclosure timeline and response SLA.
 
 #### CHANGELOG.md
 
@@ -179,7 +179,7 @@ Initial entry: v1.0.0 with release date and full feature list.
 Purpose: GitHub community health file describing where to get help.
 
 Required sections:
-- Support channels table (GitHub Issues, Discussions, pull requests, SECURITY.md process)
+- Support channels table (GitHub Issues, Discussions, pull requests, GitHub Security Advisories private channel)
 - Documentation index linking the other root documents
 - Response expectations (best-effort community support)
 - Scope note mirroring the boundary conditions in SKILL.md

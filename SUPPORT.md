@@ -9,7 +9,7 @@ This document describes where to get help with k12-teacher.
 | GitHub Issues | Bug reports and feature requests (use the provided issue forms) |
 | GitHub Discussions | Usage questions, methodology questions, and community help |
 | Pull Requests | Contributed fixes and improvements (see CONTRIBUTING.md) |
-| SECURITY.md process | Suspected security vulnerabilities -- never report these in public issues |
+| GitHub Security Advisories | Suspected security vulnerabilities -- report privately via the Security tab, never in public issues |
 
 ## Documentation
 

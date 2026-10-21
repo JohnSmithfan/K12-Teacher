@@ -25,7 +25,7 @@ Current maintainer: @JohnSmithfan
 
 ## Security Response
 
-Vulnerability reports are handled per SECURITY.md. The maintainer is the security contact of record.
+Security reports and conduct complaints are handled through GitHub Security Advisories per SECURITY.md. The maintainer is the responder of record.
 
 ## Changes to This Document
 

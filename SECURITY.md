@@ -6,11 +6,11 @@ The project maintains the latest published version for security review and issue
 
 ## Reporting a Vulnerability
 
-Please report suspected security vulnerabilities privately and responsibly.
+GitHub Security Advisories is the single supported reporting channel for suspected security vulnerabilities. Reports are private: only the maintainer can see them until an advisory is published.
 
-- Preferred contact: GitHub private vulnerability reporting (Security > Advisories > Report a vulnerability)
-- Alternative: security@k12-teacher.dev (placeholder address; the maintainer replaces it with a monitored mailbox before public release)
-- Include a clear description, reproduction steps, impact assessment, and any relevant proofs of concept
+1. Open the repository Security tab, choose Advisories, and click "Report a vulnerability".
+2. Include a clear description, reproduction steps, impact assessment, and any relevant proofs of concept.
+3. Do not open a public issue, discussion, or pull request for a suspected vulnerability.
 
 ## Disclosure Timeline
 

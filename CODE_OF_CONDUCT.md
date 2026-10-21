@@ -34,7 +34,7 @@ This Code of Conduct applies within all community spaces, and also applies when 
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project maintainers through the repository's security contact or issue tracker. All complaints will be reviewed and investigated promptly and fairly, typically within 5 business days of receipt.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported privately through GitHub Security Advisories (Security tab > Advisories > Report a vulnerability). All complaints will be reviewed and investigated promptly and fairly, typically within 5 business days of receipt.
 
 ## Enforcement Guidelines
 
