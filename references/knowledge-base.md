@@ -170,7 +170,7 @@ The following is a preliminary index of teaching syllabi to be populated in subs
 |---|---|---|---|---|---|
 | MOE-2022-MATH-PRIMARY | Mathematics Teaching Syllabus (Primary) | Stage 1 | Grades 1-6 | Mathematics | Pending Population |
 | MOE-2022-CHN-PRIMARY | Chinese Language Teaching Syllabus (Primary) | Stage 1 | Grades 1-6 | Chinese Language | Pending Population |
-| MOE-2022-SCI-PRIMARY | Science Teaching Syllabus (Primary) | Stage 1 | Grades 3-6 | Science | Pending Population |
+| MOE-2022-SCI-PRIMARY | Science Teaching Syllabus (Primary) | Stage 1 | Grades 1-6 | Science | Pending Population |
 | MOE-2022-MATH-JUNIOR | Mathematics Teaching Syllabus (Junior Secondary) | Stage 2 | Grades 7-9 | Mathematics | Pending Population |
 | MOE-2022-CHN-JUNIOR | Chinese Language Teaching Syllabus (Junior Secondary) | Stage 2 | Grades 7-9 | Chinese Language | Pending Population |
 | MOE-2022-SCI-JUNIOR | Science Teaching Syllabus (Junior Secondary) | Stage 2 | Grades 7-9 | Science | Pending Population |

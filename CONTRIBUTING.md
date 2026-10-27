@@ -183,6 +183,9 @@ Maintainers and reviewers should verify:
 - [ ] All modules have defined input, output, boundary, failure mode (C-06)
 - [ ] No cross-file circular dependencies (C-07)
 - [ ] All templates parameterized, no hardcoded values (C-10)
+- [ ] No messy/crappy code; no dead, duplicated, or misleading code or spec/implementation drift (C-11)
+- [ ] No placeholder/stub left pretending to work; unimplemented behavior marked `TECHNICAL DEBT` and commented out (C-12)
+- [ ] File hygiene and engineering hygiene rules honored (README_FOR_AI.md Section 16)
 
 ### Content Quality
 

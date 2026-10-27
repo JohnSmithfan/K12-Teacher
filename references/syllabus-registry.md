@@ -2,9 +2,31 @@
 
 ## Purpose
 
-Living index of all downloaded teaching syllabi with version tracking and change history. This registry serves as the authoritative catalog of curriculum standards integrated into the k12-teacher skill knowledge base.
+Living index of all teaching syllabi integrated into the k12-teacher skill knowledge base, with
+version tracking and change history. This registry is the authoritative catalog of curriculum
+standards referenced by `SKILL.md`, `references/knowledge-base.md`, and
+`references/grade-crosswalk.md`.
 
-## Registry Entries
+**Identifier convention (single source of truth):** Syllabus IDs use the short-code system defined
+by `SKILL.md` — `MOE-2022-<SUBJECT>-<STAGE>` where `<SUBJECT>` is one of `CHN`, `MATH`, `ENG`,
+`SCI`, `PHY`, `CHE`, `BIO`, `HIS`, `GEO`, `MOR`, `ART`, `PHE`, `IT`, `POL` and `<STAGE>` is
+`PRIMARY`, `JUNIOR`, or `SENIOR`. Do not use expanded spellings (e.g. `CHINESE`, `ENGLISH`,
+`SCIENCE`); they are deprecated drift and must not re-appear.
+
+## Status Definitions
+
+| Status | Definition |
+|---|---|
+| active | The syllabus is currently in effect and recommended for use |
+| pending_population | Declared in SKILL.md Subject Registry but subject content not yet populated (see knowledge-base.md skeleton) |
+| deprecated | The syllabus is still available but no longer recommended; a newer version exists |
+| superseded | The syllabus has been replaced by a newer version and should no longer be used |
+
+---
+
+## Populated Entries
+
+The following syllabi are integrated with real metadata. All use the canonical short-code IDs.
 
 ### Entry 1
 
@@ -26,7 +48,7 @@ Living index of all downloaded teaching syllabi with version tracking and change
 
 ### Entry 2
 
-- **Syllabus ID**: MOE-2022-CHINESE-PRIMARY
+- **Syllabus ID**: MOE-2022-CHN-PRIMARY
 - **Title**: Chinese Language Teaching Syllabus for Primary Education (2022 Edition)
 - **Chinese Title**: 义务教育语文课程标准（2022年版）
 - **Version**: 1.0
@@ -44,7 +66,7 @@ Living index of all downloaded teaching syllabi with version tracking and change
 
 ### Entry 3
 
-- **Syllabus ID**: MOE-2022-ENGLISH-PRIMARY
+- **Syllabus ID**: MOE-2022-ENG-PRIMARY
 - **Title**: English Teaching Syllabus for Primary Education (2022 Edition)
 - **Chinese Title**: 义务教育英语课程标准（2022年版）
 - **Version**: 1.0
@@ -62,7 +84,7 @@ Living index of all downloaded teaching syllabi with version tracking and change
 
 ### Entry 4
 
-- **Syllabus ID**: MOE-2022-SCIENCE-PRIMARY
+- **Syllabus ID**: MOE-2022-SCI-PRIMARY
 - **Title**: Science Teaching Syllabus for Primary Education (2022 Edition)
 - **Chinese Title**: 义务教育科学课程标准（2022年版）
 - **Version**: 1.0
@@ -76,7 +98,7 @@ Living index of all downloaded teaching syllabi with version tracking and change
 - **Last Download Timestamp**: 2026-09-12T03:00:00Z
 - **Download Source**: https://www.moe.gov.cn
 - **Change Log Reference**: [CHANGELOG.md](../CHANGELOG.md)
-- **Notes**: Science curriculum standard for primary education. Covers natural sciences, technology, and inquiry-based learning.
+- **Notes**: Science curriculum standard for primary education. Covers natural sciences, technology, and inquiry-based learning. Unified Grades 1-6 under the 2022 standard.
 
 ### Entry 5
 
@@ -98,7 +120,7 @@ Living index of all downloaded teaching syllabi with version tracking and change
 
 ### Entry 6
 
-- **Syllabus ID**: MOE-2022-CHINESE-JUNIOR
+- **Syllabus ID**: MOE-2022-CHN-JUNIOR
 - **Title**: Chinese Language Teaching Syllabus for Junior Secondary Education (2022 Edition)
 - **Chinese Title**: 义务教育语文课程标准（2022年版）- 初中阶段
 - **Version**: 1.0
@@ -116,7 +138,7 @@ Living index of all downloaded teaching syllabi with version tracking and change
 
 ### Entry 7
 
-- **Syllabus ID**: MOE-2022-PHYSICS-JUNIOR
+- **Syllabus ID**: MOE-2022-PHY-JUNIOR
 - **Title**: Physics Teaching Syllabus for Junior Secondary Education (2022 Edition)
 - **Chinese Title**: 义务教育物理课程标准（2022年版）
 - **Version**: 1.0
@@ -134,7 +156,7 @@ Living index of all downloaded teaching syllabi with version tracking and change
 
 ### Entry 8
 
-- **Syllabus ID**: MOE-2022-CHEMISTRY-JUNIOR
+- **Syllabus ID**: MOE-2022-CHE-JUNIOR
 - **Title**: Chemistry Teaching Syllabus for Junior Secondary Education (2022 Edition)
 - **Chinese Title**: 义务教育化学课程标准（2022年版）
 - **Version**: 1.0
@@ -152,7 +174,7 @@ Living index of all downloaded teaching syllabi with version tracking and change
 
 ### Entry 9
 
-- **Syllabus ID**: MOE-2022-HISTORY-SENIOR
+- **Syllabus ID**: MOE-2022-HIS-SENIOR
 - **Title**: History Teaching Syllabus for Senior Secondary Education (2022 Edition)
 - **Chinese Title**: 普通高中历史课程标准（2022年版）
 - **Version**: 1.0
@@ -170,7 +192,7 @@ Living index of all downloaded teaching syllabi with version tracking and change
 
 ### Entry 10
 
-- **Syllabus ID**: MOE-2022-GEOGRAPHY-SENIOR
+- **Syllabus ID**: MOE-2022-GEO-SENIOR
 - **Title**: Geography Teaching Syllabus for Senior Secondary Education (2022 Edition)
 - **Chinese Title**: 普通高中地理课程标准（2022年版）
 - **Version**: 1.0
@@ -186,44 +208,68 @@ Living index of all downloaded teaching syllabi with version tracking and change
 - **Change Log Reference**: [CHANGELOG.md](../CHANGELOG.md)
 - **Notes**: Geography curriculum standard for senior secondary education. Physical geography, human geography, and regional studies.
 
-## Status Definitions
+---
 
-| Status | Definition |
-|---|---|
-| active | The syllabus is currently in effect and recommended for use |
-| deprecated | The syllabus is still available but no longer recommended; a newer version exists |
-| superseded | The syllabus has been replaced by a newer version and should no longer be used |
+## Declared but Pending Population
+
+The following syllabi are declared in the `SKILL.md` Subject Registry but their subject content has
+not yet been populated into `references/knowledge-base.md`. They are listed here so every SKILL.md
+reference resolves; no metadata is fabricated. Populate via `scripts/knowledge-base-update.sh`
+(once implemented — see TECHNICAL DEBT note in that script) and promote to `active`.
+
+| Syllabus ID | Subject | Stage | Grades | Status |
+|---|---|---|---|---|
+| MOE-2022-MOR-PRIMARY | Moral and Legal Education (道德与法治) | Primary | Grades 1-6 | pending_population |
+| MOE-2022-ART-PRIMARY | Art (艺术) | Primary | Grades 1-6 | pending_population |
+| MOE-2022-PHE-PRIMARY | Physical Education and Health (体育与健康) | Primary | Grades 1-6 | pending_population |
+| MOE-2022-IT-PRIMARY | Information Technology (信息技术) | Primary | Grades 1-6 | pending_population |
+| MOE-2022-ENG-JUNIOR | English (英语) | Junior Secondary | Grades 7-9 | pending_population |
+| MOE-2022-BIO-JUNIOR | Biology (生物) | Junior Secondary | Grades 7-9 | pending_population |
+| MOE-2022-HIS-JUNIOR | History (历史) | Junior Secondary | Grades 7-9 | pending_population |
+| MOE-2022-GEO-JUNIOR | Geography (地理) | Junior Secondary | Grades 7-9 | pending_population |
+| MOE-2022-MOR-JUNIOR | Moral and Legal Education (道德与法治) | Junior Secondary | Grades 7-9 | pending_population |
+| MOE-2022-ART-JUNIOR | Art (艺术) | Junior Secondary | Grades 7-9 | pending_population |
+| MOE-2022-PHE-JUNIOR | Physical Education and Health (体育与健康) | Junior Secondary | Grades 7-9 | pending_population |
+| MOE-2022-IT-JUNIOR | Information Technology (信息技术) | Junior Secondary | Grades 7-9 | pending_population |
+| MOE-2022-ENG-SENIOR | English (英语) | Senior Secondary | Grades 10-12 | pending_population |
+| MOE-2022-PHY-SENIOR | Physics (物理) | Senior Secondary | Grades 10-12 | pending_population |
+| MOE-2022-CHE-SENIOR | Chemistry (化学) | Senior Secondary | Grades 10-12 | pending_population |
+| MOE-2022-BIO-SENIOR | Biology (生物) | Senior Secondary | Grades 10-12 | pending_population |
+| MOE-2022-POL-SENIOR | Politics (思想政治) | Senior Secondary | Grades 10-12 | pending_population |
+| MOE-2022-ART-SENIOR | Art (艺术) | Senior Secondary | Grades 10-12 | pending_population |
+| MOE-2022-PHE-SENIOR | Physical Education and Health (体育与健康) | Senior Secondary | Grades 10-12 | pending_population |
+
+---
 
 ## Maintenance Rules
 
 1. Every update operation must synchronize this registry with the actual state of the knowledge base.
-2. When a new syllabus is downloaded, add a new entry with status "active" and record the download timestamp.
-3. When a syllabus is updated to a new version, update the version number, release date, and change log reference; mark the previous version as "superseded".
-4. When a syllabus is no longer relevant, mark it as "deprecated" with a note explaining the reason.
-5. All changes to this registry must be recorded in CHANGELOG.md under the appropriate section (Added/Changed/Deprecated/Removed).
-6. Verify file integrity (checksums) before processing downloaded syllabus documents.
-7. Maintain an audit trail of all download and update operations in CHANGELOG.md.
+2. Syllabus IDs MUST use the canonical short-code convention in the Purpose section. Expanded spellings are debt and must not be committed.
+3. When a new syllabus is downloaded and populated, add/move it to `active` and record the download timestamp.
+4. When a syllabus is updated to a new version, update the version number, release date, and change log reference; mark the previous version as "superseded".
+5. When a syllabus is no longer relevant, mark it as "deprecated" with a note explaining the reason.
+6. All changes to this registry must be recorded in CHANGELOG.md under the appropriate section (Added/Changed/Deprecated/Removed).
+7. Verify file integrity (checksums) before processing downloaded syllabus documents.
+8. Maintain an audit trail of all download and update operations in CHANGELOG.md.
 
-## Registry Index (Summary Table)
+---
 
-| Syllabus ID | Title (Short) | Version | Status | Effective Date |
-|---|---|---|---|---|
-| MOE-2022-MATH-PRIMARY | Mathematics (Primary) | 1.0 | active | 2022-09-01 |
-| MOE-2022-CHINESE-PRIMARY | Chinese Language (Primary) | 1.0 | active | 2022-09-01 |
-| MOE-2022-ENGLISH-PRIMARY | English (Primary) | 1.0 | active | 2022-09-01 |
-| MOE-2022-SCIENCE-PRIMARY | Science (Primary) | 1.0 | active | 2022-09-01 |
-| MOE-2022-MATH-JUNIOR | Mathematics (Junior Secondary) | 1.0 | active | 2022-09-01 |
-| MOE-2022-CHINESE-JUNIOR | Chinese Language (Junior Secondary) | 1.0 | active | 2022-09-01 |
-| MOE-2022-PHYSICS-JUNIOR | Physics (Junior Secondary) | 1.0 | active | 2022-09-01 |
-| MOE-2022-CHEMISTRY-JUNIOR | Chemistry (Junior Secondary) | 1.0 | active | 2022-09-01 |
-| MOE-2022-HISTORY-SENIOR | History (Senior Secondary) | 1.0 | active | 2022-09-01 |
-| MOE-2022-GEOGRAPHY-SENIOR | Geography (Senior Secondary) | 1.0 | active | 2022-09-01 |
+## Registry Index
+
+The complete syllabus list is enumerated above in **Populated Entries** (status `active`) and
+**Declared but Pending Population** (status `pending_population`). A flat summary table was removed
+to avoid duplication; those two sections are the single source of truth for the registry contents.
 
 ## Version History
 
 ### v1.0.0 (2026-09-12)
 
 - Initial creation of syllabus registry
-- Added 10 syllabus entries covering Primary (Grades 1-6), Junior Secondary (Grades 7-9), and Senior Secondary (Grades 10-12) stages
-- All entries based on Ministry of Education 2022 curriculum standards
+- Added 10 populated syllabus entries covering Primary, Junior Secondary, and Senior Secondary stages
 - Established maintenance rules and status definitions
+
+### v1.1.0 (2026-10-27)
+
+- Hygiene pass: standardized all syllabus IDs to the canonical short-code convention (CHN/ENG/SCI/PHY/CHE/HIS/GEO/...); removed expanded-spelling drift (CHINESE/ENGLISH/SCIENCE/...)
+- Added 19 `pending_population` entries so every SKILL.md Subject Registry reference resolves
+- See TECHNICAL_DEBT_AUDIT.md for the full audit

@@ -260,32 +260,29 @@ echo ""
 
 echo -e "${BLUE}--- Quality Gate G-04: English Language Check ---${NC}"
 
-# Heuristic: Check for common non-English words/phrases that would indicate
-# a file is not in English. We allow parenthetical references to proper nouns
-# (e.g., Ministry of Education) and curriculum terminology as per C-02 exception.
-# We check markdown and shell files primarily.
+# Heuristic: flag non-Latin / CJK / Cyrillic script presence. C-02 permits English
+# with parenthetical proper nouns (e.g. curriculum-standard names in their original
+# script), so this is a WARN, not a FAIL, and only surfaces files for manual review.
+# It intentionally does NOT try to detect Latin-script foreign languages (unreliable);
+# the real C-02 risk is non-Latin script. Replaces the previous broken German-only
+# regex (TECHNICAL_DEBT_AUDIT.md finding F-08).
 
 NON_ENGLISH_FOUND=0
 while IFS= read -r file; do
-    # Skip binary files and files already known to contain non-English glossary terms
     case "$file" in
-        */node_modules/*|*/.git/*) continue ;;
+        */node_modules/*|*/.git/*|*/.workbuddy/*) continue ;;
     esac
 
-    # Check for common non-English sentence patterns (not individual words which may be proper nouns)
-    # We look for paragraphs that are clearly in another language
-    # This is a basic heuristic - not exhaustive
-    if grep -qiP '(?<!\w)(der|die|das|ein|eine|und|ist|auf|mit|den|dem|des|nicht|schon|aber|werden|durch|für|aus|bei|nach|von|zu|hat|war|hatte|wird|kann|sich|als|hatte|sein|werden|können|müssen|sollen|mögen|wollen)\s+(ist|hat|wird|kann|sich|hatte|war|sein|werden|können|müssen|sollen|mögen|wollen)\b' "$file" 2>/dev/null; then
-        # Found potential German text - but verify it's not just a proper noun context
-        warn "G-04" "Possible non-English content detected in: ${file}"
+    if grep -qP '[\x{4E00}-\x{9FFF}\x{3000}-\x{30FF}\x{0400}-\x{04FF}]' "$file" 2>/dev/null; then
+        warn "G-04" "Non-Latin (CJK/Cyrillic) script in: ${file} -- allowed only as parenthetical proper nouns per C-02; review manually"
         NON_ENGLISH_FOUND=1
     fi
 done < <(find "$PROJECT_ROOT" -type f \( -name "*.md" -o -name "*.sh" \) -not -path "*/node_modules/*" -not -path "*/.git/*" -print0 | xargs -0 -I{} echo "{}")
 
 if [ "$NON_ENGLISH_FOUND" -eq 0 ]; then
-    pass "G-04" "No obvious non-English content detected (basic heuristic)"
+    pass "G-04" "No unexpected non-Latin script content detected (basic heuristic)"
 else
-    warn "G-04" "Some files may contain non-English content. Please review manually."
+    warn "G-04" "Some files contain non-Latin script. Parenthetical proper nouns are permitted by C-02; review the rest."
 fi
 
 echo ""
@@ -296,36 +293,21 @@ echo ""
 
 echo -e "${BLUE}--- Quality Gate G-05: Code Template Isolation ---${NC}"
 
-# Code templates should only exist in references/method-patterns.md
-# We look for common template markers and structured pseudocode blocks
-# in files other than method-patterns.md
+# Code templates must live ONLY in references/method-patterns.md. Scan every other
+# file for "Template X-Y" instructional-template markers. Consolidated from three
+# redundant near-identical regexes (TECHNICAL_DEBT_AUDIT.md finding F-09). Only the
+# allowed file is exempted; no other file is special-cased.
 
 TEMPLATE_VIOLATIONS=0
 while IFS= read -r file; do
-    # Skip the allowed file
     case "$file" in
-        *method-patterns.md) continue ;;
-        *validate-structure.sh) continue ;;  # This script itself contains patterns
+        *method-patterns.md) continue ;;   # the one allowed location for templates
     esac
 
-    # Check for template-like content: structured pseudocode blocks, Template X-Y markers
-    if grep -qP 'Template\s+[A-Z]-\d+' "$file" 2>/dev/null; then
-        fail "G-05" "Code template marker found outside method-patterns.md: ${file}"
+    if grep -qP '\bTemplate\s+[A-Z]-\d+\b' "$file" 2>/dev/null; then
+        fail "G-05" "Instructional template marker found outside references/method-patterns.md: ${file}"
         TEMPLATE_VIOLATIONS=$((TEMPLATE_VIOLATIONS + 1))
     fi
-
-    # Check for structured template sections that look like instructional templates
-    if grep -qP '^\*\*Template\s' "$file" 2>/dev/null; then
-        fail "G-05" "Structured template pattern found outside method-patterns.md: ${file}"
-        TEMPLATE_VIOLATIONS=$((TEMPLATE_VIOLATIONS + 1))
-    fi
-
-    # Check for Template A-X, Template B-X, Template C-X, Template D-X patterns
-    if grep -qP 'Template\s+[A-D]-\d+' "$file" 2>/dev/null; then
-        fail "G-05" "Instructional strategy template reference found outside method-patterns.md: ${file}"
-        TEMPLATE_VIOLATIONS=$((TEMPLATE_VIOLATIONS + 1))
-    fi
-
 done < <(find "$PROJECT_ROOT" -type f \( -name "*.md" -o -name "*.sh" -o -name "*.txt" \) -not -path "*/node_modules/*" -not -path "*/.git/*" -print0 | xargs -0 -I{} echo "{}")
 
 if [ "$TEMPLATE_VIOLATIONS" -eq 0 ]; then

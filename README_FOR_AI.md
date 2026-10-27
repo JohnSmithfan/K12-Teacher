@@ -36,6 +36,8 @@ The following constraints are non-negotiable and apply to every file produced du
 | C-08 | Single Responsibility per file | One domain concern per file |
 | C-09 | Minimal surface area | Each file under 300 lines unless justified |
 | C-10 | Automation-ready | All templates parameterized, no hardcoded values |
+| C-11 | No Messy/Crappy Code | No dead code, duplicated logic, broken heuristics, misleading comments, or spec/implementation drift in any file |
+| C-12 | No New Historical Debt | Do not commit placeholder/stub implementations that pretend to work; unimplemented behavior must be explicitly marked as `TECHNICAL DEBT` and commented out, or omitted until real |
 
 ## 4. Complete File Tree
 
@@ -223,7 +225,7 @@ Required structure:
 | Section | Content |
 |---|---|
 | Identity | Name, version, scope, license (tabular format) |
-| Capability Matrix | Five-tier capability ladder (Qualification -> Level 3 -> Level 2 -> Level 1 -> Senior -> Principal); Each tier: one-line descriptor of teaching autonomy |
+| Capability Matrix | Five-tier capability ladder (Qualification -> Developing Practitioner -> Competent Practitioner -> Senior Practitioner -> Principal-Level Expert); Each tier: one-line descriptor of teaching autonomy |
 | Subject Registry | Complete list of teachable subjects organized by teaching syllabus (教学大纲) and education stage; Stage 1: Primary (Grades 1-6); Stage 2: Junior Secondary (Grades 7-9); Stage 3: Senior Secondary (Grades 10-12); Syllabus ID mapping and crosswalk references |
 | Instructional Workflow | Five-phase teaching cycle (Diagnose -> Select -> Deliver -> Assess -> Remediate); Each phase: one-line trigger condition and one-line output descriptor |
 | Quick Reference: Tier Selection Logic | Decision table mapping learner profile to instructional tier; Inputs: grade level, subject, learner performance band; Output: tier designation and corresponding depth parameter |
@@ -646,6 +648,8 @@ The skill compilation is considered complete only when ALL of the following pass
 | G-09 | All five workflow phases are defined in SKILL.md | Content check |
 | G-10 | references/knowledge-base.md exists and contains syllabus-based skeleton (Phase 3 may add content later); references/syllabus-registry.md exists | File existence + syllabus skeleton check |
 
+**Hygiene constraints C-11 (No Messy/Crappy Code) and C-12 (No New Historical Debt) are review-enforced**, not automated gates. They are verified in pull-request review per Section 16 and the CONTRIBUTING.md Review Checklist. A passing G-01…G-10 run does not by itself certify hygiene compliance.
+
 ## 12. Escalation and Boundary Rules
 
 The skill must refuse or escalate in the following scenarios:
@@ -744,3 +748,51 @@ Every update operation must synchronize this registry with the actual state of t
 - Validate file integrity (checksums) before processing
 - Review parsed content before merging into the knowledge base
 - Maintain audit trail of all download and update operations in CHANGELOG.md
+
+## 16. File Hygiene and Engineering Hygiene
+
+This skill must stay free of technical debt. Two hygiene disciplines are mandatory for every
+contributor and every AI regeneration pass. They are enforced through constraints **C-11** and
+**C-12** and verified in code review (see CONTRIBUTING.md Review Checklist), not by the automated
+gate script.
+
+### 16.1 File Hygiene (文件卫生)
+
+Every file committed to this repository must be clean and self-consistent:
+
+- **No Messy Code.** No dead code, commented-out-and-forgotten blocks, duplicated logic, copy-paste
+  forks, or leftover debug artifacts. If code is not used, delete it; do not leave it "for later".
+- **No Crappy Code.** No broken heuristics, fragile regexes, misleading comments, or logic that
+  only appears to work. A check that cannot reliably detect what it claims to detect is crappy and
+  must be fixed or removed.
+- **No Spec/Implementation Drift.** The build spec (this document), SKILL.md, and the actual files
+  must agree. If a constraint, tier name, syllabus ID, or contract changes in one place, it changes
+  everywhere it is referenced. Cross-file identifiers (e.g., syllabus IDs) use exactly one spelling.
+- **No Redundancy.** Each fact, template, and identifier lives in exactly one canonical location
+  and is referenced, never duplicated (reinforces C-08 / C-09).
+
+### 16.2 Engineering Hygiene (工程卫生)
+
+The project must not accumulate historical burden:
+
+- **No New Historical Debt.** Do not commit placeholder or stub implementations that pretend to be
+  functional. If a feature is not implemented yet, either omit it or mark it explicitly as
+  `TECHNICAL DEBT` and comment the unimplemented body out, so reviewers and future agents see the
+  gap immediately (constraint **C-12**).
+- **No Over-Claiming.** Documentation and indexes must not advertise coverage the project does not
+  yet provide. Declared subjects, syllabi, and capabilities must resolve to real (or explicitly
+  `pending_population`) entries; dangling references are debt.
+- **Single Source of Truth.** The authoritative index is SKILL.md. Syllabus IDs, tier names, and
+  subject lists declared there are canonical; references/, scripts/, and prompts/ must match them.
+- **Fix Forward, Not Around.** When debt is found, fix it at the source and update every reference
+  in the same change. Do not patch symptoms with yet another inconsistent copy.
+
+### 16.3 Pre-Commit Hygiene Gate (Human Review)
+
+Before any pull request is merged, a reviewer confirms:
+
+- [ ] No dead, duplicated, or misleading code introduced (C-11)
+- [ ] No placeholder/stub left pretending to work; unimplemented behavior marked `TECHNICAL DEBT` and commented out (C-12)
+- [ ] Every syllabus ID / tier name / subject spelled identically across all files
+- [ ] No new dangling references; declared coverage resolves to real or `pending_population` entries
+- [ ] `./scripts/validate-structure.sh` passes all quality gates (G-01 through G-10)
