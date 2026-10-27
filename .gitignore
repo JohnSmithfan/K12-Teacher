@@ -160,6 +160,9 @@ downloads/tmp/
 # Local agent workspace data (audit reports, memory, task state)
 .workbuddy/
 
+# Local-only technical debt assessment report (not part of the deliverable; keep off GitHub)
+TECHNICAL_DEBT_AUDIT.md
+
 # ============================================
 # End of .gitignore
 # ============================================
